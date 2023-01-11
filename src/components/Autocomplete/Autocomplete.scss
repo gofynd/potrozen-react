@@ -1,0 +1,37 @@
+@import "./../../base/base.scss";
+
+.nitrozen-autocomplete-items {
+  position: absolute;
+  border: 0.1rem solid $SecondaryDisabledColor;
+  font-family: $PrimaryFont;
+  border-bottom: none;
+  border-top: none;
+  z-index: $ZIndex3;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 0.3rem;
+  width: 100%;
+  font-size: $BaseFontSize + 2;
+  margin-bottom: 2rem;
+  box-shadow: 0rem 0.2rem 1rem $Shadow;
+  max-height: 30rem;
+  overflow-y: auto;
+  @include nitrozen-menu-scrollbar;
+}
+
+.nitrozen-autocomplete-items div {
+  padding: 1.6rem;
+  cursor: pointer;
+  background-color: $WhiteColor;
+  border-bottom: 0.1rem solid $SecondaryDisabledColor;
+  &:hover,
+  &.selection-active {
+    background-color: $HoverColor;
+  }
+}
+
+.nitrozen-autocomplete {
+  position: relative;
+  width: 100%;
+}

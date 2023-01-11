@@ -1,0 +1,121 @@
+@import "../../base/base.scss";
+
+.nitrozen-toggle-container {
+  display: flex;
+  align-items: center;
+  .nitrozen-switch {
+    position: relative;
+    display: inline-block;
+
+    &.small {
+      height: 1rem;
+      width: 2rem;
+    }
+    &.medium {
+      height: 1.2rem;
+      width: 2.4rem;
+    }
+    //DEFAULT
+    &.large {
+      height: 1.6rem;
+      width: 3.6rem;
+    }
+
+    .nitrozen-disabled {
+      cursor: not-allowed !important;
+    }
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .nitrozen-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $TypographySecondaryColor;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+      &.nitrozen-disabled {
+        background: $VeryLightGrey;
+      }
+    }
+    .slider-ball {
+      position: absolute;
+      right: 100%;
+      bottom: 50%;
+      -webkit-transform: translate(100%, 50%);
+      -ms-transform: translate(100%, 50%);
+      transform: translate(100%, 50%);
+      background-color: $WhiteColor;
+      box-shadow: $ToggleBtnShadow;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+    &.small .slider-ball {
+      height: 1.2rem;
+      width: 1.2rem;
+    }
+    &.medium .slider-ball {
+      height: 1.6rem;
+      width: 1.6rem;
+    }
+    &.large .slider-ball {
+      height: 2rem;
+      width: 2rem;
+    }
+    .nitrozen-disable .slider-ball {
+      background: $SecondaryDisabledColor;
+    }
+    .nitrozen-slider.checked {
+      background-color: change-color(
+        $DefaultColor,
+        $lightness: 79%
+      ); // change-color to make lighter color from the primary color.
+
+      &.nitrozen-disabled {
+        background: change-color($Portage, $lightness: 94%);
+      }
+    }
+    input:focus + .nitrozen-slider {
+      box-shadow: 0 0 0.1rem $SecondaryColor;
+    }
+    .nitrozen-slider.checked .slider-ball {
+      right: 0%;
+      -webkit-transform: translate(0%, 50%);
+      -ms-transform: translate(0%, 50%);
+      transform: translate(0%, 50%);
+      background-color: $PrimaryColor;
+    }
+    .nitrozen-disabled.checked .slider-ball {
+      background: $Portage;
+    }
+  }
+}
+.nitrozen-slider.nitrozen-round {
+  border-radius: 3rem;
+}
+.nitrozen-round .slider-ball {
+  border-radius: 50%;
+}
+
+//DEMO
+.all-togglebtn-sections {
+  @include d-flex-center;
+  align-items: flex-start;
+  gap: 3.4rem;
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    span {
+      font-family: $PrimaryFont;
+      font-size: $BaseFontSize + 2;
+    }
+  }
+}
